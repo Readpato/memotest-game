@@ -4,7 +4,9 @@
   "description": "The classic memory game recreated with code.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,9 @@
   },
   "homepage": "https://github.com/Readpato/memotest-game#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^5.1.3"
+  },
+  "devDependencies": {
     "cypress": "^9.1.1"
   }
 }
