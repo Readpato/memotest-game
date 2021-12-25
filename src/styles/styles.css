@@ -1,1 +1,73 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+/* Colors Variables */
+main .game-board {
+  margin-top: 2.5rem;
+}
+
+main .game-row {
+  height: 20vh;
+}
+
+main .game-col {
+  border: 1px solid black;
+}
+
+main .color-box {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 5s ease-in-out;
+  transition: opacity 5s ease-in-out;
+}
+
+main .upper-row {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+main .middle-row {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+main .lower-row {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 0.5px solid black;
+}
+
+main .violet {
+  background-color: #7b0dfd;
+}
+
+main .pink {
+  background-color: #fd0db2;
+}
+
+main .red {
+  background-color: #fd360d;
+}
+
+main .yellow {
+  background-color: #f6fd0d;
+}
+
+main .green {
+  background-color: #28fd0d;
+}
+
+main .cyan {
+  background-color: #0dfdbf;
+}
+
+main .disabled {
+  background-color: #757e8d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*# sourceMappingURL=styles.css.map */
