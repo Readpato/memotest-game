@@ -1,4 +1,8 @@
 main {
+  .game-board {
+    margin-top: 2.5rem;
+  }
+
   .game-row {
     height: 20vh;
   }
@@ -10,5 +14,52 @@ main {
   .color-box {
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+  }
+
+  .upper-row {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  .middle-row {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  .lower-row {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 0.5px solid black;
+  }
+
+  .violet {
+    background-color: $violet-color;
+  }
+
+  .pink {
+    background-color: $pink-color;
+  }
+
+  .red {
+    background-color: $red-color;
+  }
+
+  .yellow {
+    background-color: $yellow-color;
+  }
+
+  .green {
+    background-color: $green-color;
+  }
+
+  .cyan {
+    background-color: $cyan-color;
+  }
+
+  .disabled {
+    background-color: $disabled-color;
   }
 }
