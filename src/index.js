@@ -1,9 +1,8 @@
 const $gameBoard = document.querySelector('.game-board');
-const $colorBoxes =  $gameBoard.querySelectorAll('.color-box');
 let $firstSelectedColorBox = null;
 
 function gameSetup() {
-
+    let $colorBoxes =  $gameBoard.querySelectorAll('.color-box');
     let baseColors = ['violet', 'pink', 'red', 'yellow', 'green', 'cyan'];
     let totalColors = baseColors.concat(baseColors);
     setColorBoxes($colorBoxes, totalColors);
@@ -45,14 +44,14 @@ function handleColorBoxClick($selectedColorBox){
         if(equalColorBoxes($firstSelectedColorBox, $selectedColorBox)){
             disableElement($firstSelectedColorBox);
             disableElement($selectedColorBox);
+
         } else {
-            
             hideElement($firstSelectedColorBox);
             hideElement($selectedColorBox);
         }
         $firstSelectedColorBox = null;
     }   
-
+    return;
 };
 
 function hightlightElement($element) {
@@ -69,6 +68,7 @@ function disableElement($element){
     setTimeout(function(){
         $element.parentElement.classList.add('disabled');
         $element.remove();
+        evaluateGameEnd();
     }, 300);
     
 };
@@ -77,5 +77,32 @@ function equalColorBoxes($firstBox, $secondBox) {
     return $firstBox.className === $secondBox.className;
 };
 
+function evaluateGameEnd(){
+    const $gameEndMessage = document.querySelector('.game-end-message');
+    if (document.querySelectorAll('.color-box').length === 0) {
+        $gameBoard.classList.add('hidden');
+        $gameEndMessage.classList.remove('hidden');
+    };
+};
+
+document.querySelector('.start-again-button').onclick = function(){
+    const $gameEndMessage = document.querySelector('.game-end-message');
+    $gameBoard.classList.remove('hidden');
+    $gameEndMessage.classList.add('hidden');
+
+    resetGame();
+    gameSetup();
+};
+
+function resetGame(){
+    const $gameCol = $gameBoard.querySelectorAll('.game-col');
+
+    $gameCol.forEach(function(column){
+        column.classList.remove('disabled');
+        let $div = document.createElement('div');
+        $div.className = 'color-box';
+        column.appendChild($div);
+    });
+};
 
 gameSetup();

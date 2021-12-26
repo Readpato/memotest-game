@@ -37,12 +37,9 @@ There is going to be several steps guiding this process:
   - If the selected boxes are exactly the same, we are not going to do anything!
 - The color box will light itself up and will stay that way.
 
-  - A function will take care of this task.
-
 - Then the process divides itself
-
 - Two identical color boxes where selected. - The element will remove itself and not be allowed to be selected again - The first selected box variable will be emptied. - The game has to asses if it's the ends game or not. (Look below) - The next round begins.
-  -Two different color boxes where selected.
+  - Two different color boxes where selected.
   - The color boxes will revert back to its original hidden color
   - The next round begins.
 - All the boxes are correctly matched.
