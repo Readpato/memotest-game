@@ -64,4 +64,24 @@ main {
     background-color: $disabled-color;
     opacity: 1;
   }
+  .game-end-message {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .start-again-button {
+      background-color: $start-again-color;
+      border: none;
+    }
+
+    .start-again-button:hover {
+      background-color: $start-again-hover-color;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
 }
