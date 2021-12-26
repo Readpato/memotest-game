@@ -21,3 +21,29 @@ We can achieve that by:
 - Putting all the base colors in an array, then duplicate that array.
 - Shuffle the array within itself
 - Run that array with a forEach function that will asign them the class name while it runs through the index.
+
+After the colors are randomized, the game starts.
+That means that we need a function that handles the game round.
+
+There is going to be several steps guiding this process:
+
+- The user selects(click) a random color box
+  - The input will be adressed as an event because of the onclick event handler.
+  - We will verify that the click has been made correctly on a color box.
+- The selected color box will light itself up and it will stay that way.
+  - The box will change it's opacity to 1 once it has been clicked upon. (A function will take care of this task)
+  - If there's no first input, we will save it and run the handling again.
+- The user then selects(click) another color box.
+  - If the selected boxes are exactly the same, we are not going to do anything!
+- The color box will light itself up and will stay that way.
+
+  - A function will take care of this task.
+
+- Then the process divides itself
+
+- Two identical color boxes where selected. - The element will remove itself and not be allowed to be selected again - The first selected box variable will be emptied. - The game has to asses if it's the ends game or not. (Look below) - The next round begins.
+  -Two different color boxes where selected.
+  - The color boxes will revert back to its original hidden color
+  - The next round begins.
+- All the boxes are correctly matched.
+  - The game board will dissapear and a message display a victory message will appear.

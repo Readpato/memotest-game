@@ -15,8 +15,8 @@ main .color-box {
   width: 100%;
   height: 100%;
   opacity: 0;
-  -webkit-transition: opacity 5s ease-in-out;
-  transition: opacity 5s ease-in-out;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   cursor: pointer;
 }
 
@@ -63,6 +63,7 @@ main .cyan {
 
 main .disabled {
   background-color: #757e8d;
+  opacity: 1;
 }
 
 * {
