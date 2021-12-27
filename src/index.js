@@ -1,5 +1,7 @@
 const $gameBoard = document.querySelector('.game-board');
-let $firstSelectedColorBox = null;
+let $previousColorBox = null;
+let $roundCounter = document.querySelector('.round-counter');
+let round = 0;
 
 function gameSetup() {
     let $colorBoxes =  $gameBoard.querySelectorAll('.color-box');
@@ -13,7 +15,6 @@ function setColorBoxes($colorBoxes, totalColors) {
     const randomColors = totalColors.sort(function(){
         return 0.5 - Math.random();
     });
-
 
     // * This works because they have the same array length, so the index is the same
 
@@ -34,22 +35,25 @@ function handleRound(){
 function handleColorBoxClick($selectedColorBox){
     hightlightElement($selectedColorBox);
 
-    if ($firstSelectedColorBox === null) {
-        $firstSelectedColorBox = $selectedColorBox;
+    if ($previousColorBox === null) {
+        $previousColorBox = $selectedColorBox;
     } else {
-        if ($firstSelectedColorBox === $selectedColorBox) {
+        if ($previousColorBox === $selectedColorBox) {
             return;
         }
 
-        if(equalColorBoxes($firstSelectedColorBox, $selectedColorBox)){
-            disableElement($firstSelectedColorBox);
-            disableElement($selectedColorBox);
+        round++
+        updateRoundCounter(round);
 
+        if(equalColorBoxes($previousColorBox, $selectedColorBox)){
+            disableElement($previousColorBox);
+            disableElement($selectedColorBox);
+            
         } else {
-            hideElement($firstSelectedColorBox);
+            hideElement($previousColorBox);
             hideElement($selectedColorBox);
         }
-        $firstSelectedColorBox = null;
+        $previousColorBox = null;
     }   
     return;
 };
@@ -62,7 +66,7 @@ function hideElement($element) {
     setTimeout(function(){
         $element.style.opacity = '0';
     }, 300);
-}
+};
 
 function disableElement($element){
     setTimeout(function(){
@@ -73,22 +77,32 @@ function disableElement($element){
     
 };
 
+function updateRoundCounter(round){
+    document.querySelector('.rounds').textContent = round.toString();
+};
+
 function equalColorBoxes($firstBox, $secondBox) {
     return $firstBox.className === $secondBox.className;
 };
 
 function evaluateGameEnd(){
-    const $gameEndMessage = document.querySelector('.game-end-message');
+
+    const $gameEndSection = document.querySelector('.game-end-section');
+    const $totalRounds = $gameEndSection.querySelector('.total-rounds');
     if (document.querySelectorAll('.color-box').length === 0) {
+        
         $gameBoard.classList.add('hidden');
-        $gameEndMessage.classList.remove('hidden');
+        $roundCounter.classList.add('hidden');
+        $gameEndSection.classList.remove('hidden');
+        $totalRounds.textContent = round.toString();
     };
+    return;
 };
 
 document.querySelector('.start-again-button').onclick = function(){
-    const $gameEndMessage = document.querySelector('.game-end-message');
+    const $gameEndSection = document.querySelector('.game-end-section');
     $gameBoard.classList.remove('hidden');
-    $gameEndMessage.classList.add('hidden');
+    $gameEndSection.classList.add('hidden');
 
     resetGame();
     gameSetup();
@@ -96,6 +110,9 @@ document.querySelector('.start-again-button').onclick = function(){
 
 function resetGame(){
     const $gameCol = $gameBoard.querySelectorAll('.game-col');
+    round = 0;
+    updateRoundCounter(round);
+    $roundCounter.classList.remove('hidden');
 
     $gameCol.forEach(function(column){
         column.classList.remove('disabled');
