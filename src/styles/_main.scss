@@ -1,6 +1,6 @@
 main {
   .game-board {
-    margin-top: 2.5rem;
+    margin-top: 1rem;
   }
 
   .game-row {
@@ -15,7 +15,7 @@ main {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 5s ease-in-out;
+    transition: opacity 0.3s ease;
     cursor: pointer;
   }
 
@@ -62,5 +62,27 @@ main {
 
   .disabled {
     background-color: $disabled-color;
+    opacity: 1;
+  }
+
+  .game-end-message {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .start-again-button {
+      background-color: $start-again-color;
+      border: none;
+    }
+
+    .start-again-button:hover {
+      background-color: $start-again-hover-color;
+    }
+  }
+
+  .hidden {
+    display: none;
   }
 }

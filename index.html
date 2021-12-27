@@ -12,9 +12,24 @@
     <title>Memotest Game</title>
   </head>
   <body class="bg-primary bg-opacity-50">
-    <main>
-      <h1 class="text-center">Memory Test Game!</h1>
-      <div class="container game-board">
+    <main class="container">
+      <div class="row">
+        <div class="col-12"><h1 class="text-center">Memory Test Game</h1></div>
+        <div class="col-12 text-center round-counter">
+          Round Number: <span class="rounds">-</span>
+        </div>
+      </div>
+      <section class="game-end-section text-center hidden">
+        <h2>Congratulations, you won the game!</h2>
+        <p>
+          It took you <span class="total-rounds"></span> rounds to finish the
+          game!
+        </p>
+        <button type="button" class="btn btn-primary start-again-button">
+          Start Again
+        </button>
+      </section>
+      <div class="game-board">
         <div class="row game-row upper-row">
           <div class="col-4 game-col"><div class="color-box"></div></div>
           <div class="col-4 game-col"><div class="color-box"></div></div>
