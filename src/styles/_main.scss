@@ -1,6 +1,6 @@
 main {
   .game-board {
-    margin-top: 2.5rem;
+    margin-top: 1rem;
   }
 
   .game-row {
@@ -64,6 +64,7 @@ main {
     background-color: $disabled-color;
     opacity: 1;
   }
+
   .game-end-message {
     height: 50vh;
     display: flex;
