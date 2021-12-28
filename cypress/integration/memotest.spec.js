@@ -1,9 +1,11 @@
 const URL = 'http://192.168.0.134:8080';
 
+
+before(() => {
+    cy.visit(URL);
+})
+
 describe('Memotest Game', () => {
-    beforeEach(() => {
-        cy.visit(URL);
-    })
 
     it('Assess that there is an existing gameboard', () => {
     
@@ -34,4 +36,11 @@ describe('Memotest Game', () => {
             });
         });
     });
+
+    it('Determine that when a color box is clicked, it will highlight up and then go back to', () => {
+        cy.get('.color-box')
+        .eq(0)
+        .click()
+        .should('have.css', 'opacity', '1')
+    })
 });
