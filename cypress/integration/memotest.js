@@ -56,7 +56,7 @@ context("Memotest Game", () => {
       });
     });
 
-    it("Selects all proper combinations", () => {
+    it("Select all proper combinations", () => {
       cy.get(".color-box").should("have.length", COLOR_BOX_QUANTITY);
       pairsList.forEach((pair) => {
         // * pairsList is an array that has as value another array with 2 sub values. That's why while running each, we can select
@@ -65,6 +65,19 @@ context("Memotest Game", () => {
         cy.get(pair[1]).click();
       });
       cy.get(".color-box").should("have.length", 0);
+    });
+
+    it("Show end game section", () => {
+      cy.get(".game-board").should("not.be.visible");
+      cy.get(".game-end-section").should("be.visible");
+      cy.get(".game-end-section")
+        .find("h2")
+        .contains("Congratulations, you won the game!");
+      let totalRoundsPlayed = COLOR_BOX_QUANTITY / 2 + 1;
+      cy.get(".end-game-message").contains(
+        `It took you ${totalRoundsPlayed} rounds to finish the game!`
+      );
+      cy.get(".start-again-button").should("be.visible");
     });
   });
 });
