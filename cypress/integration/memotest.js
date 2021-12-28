@@ -80,6 +80,16 @@ context("Memotest Game", () => {
       cy.get(".start-again-button").should("be.visible");
     });
   });
+
+  describe("Restarting the game", () => {
+    it("Restart the game with start again button", () => {
+      cy.get(".start-again-button").click();
+      cy.get(".game-board").should("be.visible");
+      cy.get(".game-end-section").should("not.be.visible");
+      cy.get(".color-box").should("have.length", COLOR_BOX_QUANTITY);
+      cy.get(".round-counter").contains(`Round Number: ${0}`);
+    });
+  });
 });
 
 function getColorBoxPair(colorBoxes) {
