@@ -55,6 +55,17 @@ context("Memotest Game", () => {
         cy.get(".color-box").should("have.length", COLOR_BOX_QUANTITY);
       });
     });
+
+    it("Selects all proper combinations", () => {
+      cy.get(".color-box").should("have.length", COLOR_BOX_QUANTITY);
+      pairsList.forEach((pair) => {
+        // * pairsList is an array that has as value another array with 2 sub values. That's why while running each, we can select
+        // * the values that are inside of it.
+        cy.get(pair[0]).click();
+        cy.get(pair[1]).click();
+      });
+      cy.get(".color-box").should("have.length", 0);
+    });
   });
 });
 
@@ -68,7 +79,7 @@ function getColorBoxPair(colorBoxes) {
     if (pairs[colorClass]) {
       pairs[colorClass].push(colorBox);
     } else {
-      // *If the pairs.colorClass property IS then start an array with that element inside of it.
+      // *If the pairs.colorClass property IS empty then start an array with that element inside of it.
       pairs[colorClass] = [colorBox];
     }
   });
