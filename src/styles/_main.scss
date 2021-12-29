@@ -65,7 +65,7 @@ main {
     opacity: 1;
   }
 
-  .game-end-message {
+  .game-end-section {
     height: 50vh;
     display: flex;
     align-items: center;
@@ -75,6 +75,7 @@ main {
     .start-again-button {
       background-color: $start-again-color;
       border: none;
+      color: black;
     }
 
     .start-again-button:hover {

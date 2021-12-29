@@ -66,7 +66,7 @@ main .disabled {
   opacity: 1;
 }
 
-main .game-end-message {
+main .game-end-section {
   height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,12 +83,13 @@ main .game-end-message {
           flex-direction: column;
 }
 
-main .game-end-message .start-again-button {
+main .game-end-section .start-again-button {
   background-color: #fd9c0d;
   border: none;
+  color: black;
 }
 
-main .game-end-message .start-again-button:hover {
+main .game-end-section .start-again-button:hover {
   background-color: #feba56;
 }
 
