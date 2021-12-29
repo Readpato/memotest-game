@@ -34,13 +34,15 @@ This will allow to download the dependencies you need to run the Memotest proper
 
 The game works as the original one. A game board is presented with empty boxes. Once the user presses one box, it will highlight with its color and it will remain selected.
 
-<img  src="/" align="center">
+<img  src="https://github.com/Readpato/memotest-game/blob/main/readme-images/memotest-img-1.PNG" align="center">
 
 Then, if the user has the possibility of choosing another box. If the color of the box matches the previously selected, it will become gray and it will be removed from the game. If the color should not match the original one, both of the color boxes will return to their original base color.
 
-<img  src="/" align="center">
+<img  src="https://github.com/Readpato/memotest-game/blob/main/readme-images/memotest-img-2.PNG" align="center">
 
 Once all the colors are matched throughout the board. A victory message will appear displaying how many rounds the user took to finish the game and a button that allows the user to restart the game if wished.
+
+<img  src="https://github.com/Readpato/memotest-game/blob/main/readme-images/memotest-img-3.PNG" align="center">
 
 #
 
