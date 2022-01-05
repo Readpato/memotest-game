@@ -3,12 +3,12 @@ let $previousColorBox = null;
 let $roundCounter = document.querySelector(".round-counter");
 let round = 0;
 
-function gameSetup() {
+function setupGame() {
   let $colorBoxes = $gameBoard.querySelectorAll(".color-box");
   let baseColors = ["violet", "pink", "red", "yellow", "green", "cyan"];
   let totalColors = baseColors.concat(baseColors);
   setColorBoxes($colorBoxes, totalColors);
-  handleRound();
+  handleColorBoxClick();
 }
 
 function setColorBoxes($colorBoxes, totalColors) {
@@ -23,16 +23,16 @@ function setColorBoxes($colorBoxes, totalColors) {
   });
 }
 
-function handleRound() {
+function handleColorBoxClick() {
   $gameBoard.onclick = function (event) {
     const $element = event.target;
     if ($element.classList.contains("color-box")) {
-      handleColorBoxClick($element);
+      handleRound($element);
     }
   };
 }
 
-function handleColorBoxClick($selectedColorBox) {
+function handleRound($selectedColorBox) {
   hightlightElement($selectedColorBox);
 
   if ($previousColorBox === null) {
@@ -45,7 +45,7 @@ function handleColorBoxClick($selectedColorBox) {
     round++;
     updateRoundCounter(round);
 
-    if (equalColorBoxes($previousColorBox, $selectedColorBox)) {
+    if (isSameColorbox($previousColorBox, $selectedColorBox)) {
       disableElement($previousColorBox);
       disableElement($selectedColorBox);
     } else {
@@ -79,7 +79,7 @@ function updateRoundCounter(round) {
   document.querySelector(".rounds").textContent = round.toString();
 }
 
-function equalColorBoxes($firstBox, $secondBox) {
+function isSameColorbox($firstBox, $secondBox) {
   return $firstBox.className === $secondBox.className;
 }
 
@@ -101,7 +101,7 @@ document.querySelector(".start-again-button").onclick = function () {
   $gameEndSection.classList.add("hidden");
 
   resetGame();
-  gameSetup();
+  setupGame();
 };
 
 function resetGame() {
@@ -118,4 +118,4 @@ function resetGame() {
   });
 }
 
-gameSetup();
+setupGame();
